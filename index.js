@@ -3,7 +3,7 @@ const screens = document.querySelectorAll(".screen");
 const timeList = document.querySelector(".time__list");
 const reload = document.querySelector(".game__new");
 const timeEl = document.querySelector("#time");
-const boadr = document.querySelector(".board");
+const board = document.querySelector(".board");
 let time = 0;
 
 console.log("time", time);
@@ -23,6 +23,7 @@ timeList.addEventListener("click", (e) => {
 
 function startGame() {
   setInterval(decreaseTime, 1000);
+  createRandomCircle();
   setTime(time);
 }
 function decreaseTime() {
@@ -41,7 +42,27 @@ function setTime(value) {
   timeEl.innerHTML = `00: ${value}`;
 }
 function finishGame() {
-  boadr.innerHTML = `<h3>Ваш Рахунок:</h3>`;
+  timeEl.parentNode.classList.add("hide");
+  board.innerHTML = `<h3>Ваш Рахунок:</h3>`;
+}
+
+function createRandomCircle() {
+  const circle = document.createElement("div");
+  const size = getRandomNumber(20, 80);
+  const { width, height } = board.getBoundingClientRect();
+  const x = getRandomNumber(0, width - size);
+  const y = getRandomNumber(0, height - size);
+  circle.classList.add("circle");
+  circle.style.width = `${size}px`;
+  circle.style.height = `${size}px`;
+  circle.style.top = `${y}px`;
+  circle.style.left = `${x}px`;
+  board.append(circle);
+}
+
+const { width, height } = board;
+function getRandomNumber(min, max) {
+  return Math.round(Math.random() * (max - min) + min);
 }
 
 reload.addEventListener("click", () => {
