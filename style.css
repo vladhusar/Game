@@ -14,7 +14,7 @@
 .game {
   overflow: hidden;
   height: 100vh;
-  background: linear-gradient(270deg, #09251e, #46635c);
+  background: url(./dota.jpg);
 }
 
 .screen {
@@ -25,6 +25,7 @@
   height: 100vh;
   width: 100%;
   transition: margin 0.5s ease-out;
+  background-position: center;
 }
 
 .screen.up {
@@ -33,18 +34,20 @@
 
 .game__title {
   font-size: 48px;
-  background-color: #333;
+  background-color: red;
   padding: 10px 30px;
   color: #fff;
   margin-bottom: 25px;
   border-radius: 20px;
 }
 
+  
+
 .start {
   font-size: 36px;
   color: #fff;
   text-decoration: none;
-  background-color: #333;
+  background-color: red;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
@@ -91,10 +94,15 @@
   margin-bottom: 30px;
   background-color: #09251e;
 }
-
+@media screen and(max-width: 768px){
+  .board {
+    width: 100px;
+    height: 100px;
+  }
+}
 .game__new {
   border: none;
-  background-color: #09251e;
+  background-color: red;
   color: aliceblue;
   padding: 10px 20px;
   cursor: pointer;
@@ -105,7 +113,7 @@
   transition: opacity 0.5s linear;
 }
 .circle {
-  background-image: url("./ball.svg");
+  background-image: url("./Dota2_temp_output.webp");
   position: absolute;
   background-size: cover;
   cursor: pointer;
